@@ -1,12 +1,12 @@
-# 🗒️ Registro de Trabajo en Clase - Taller X
+# 🗒️ Registro de Trabajo en Clase - Taller 4
 
 ## 📆 Fecha de la sesión
-_Indique la fecha de la clase en que se trabajó este taller._
+_06/09/2025_
 
 ## 👥 Integrantes presentes
-- Nombre 1
-- Nombre 2
-- Nombre 3
+- Juan David Cetina Gómez
+- Ana Lucía Quintero Vargas
+- Mariana Salas Gutiérrez
 
 ## 🧠 Actividades realizadas en clase
 
@@ -33,4 +33,4 @@ Anote las responsabilidades acordadas entre los miembros del equipo para complet
 
 ---
 
-_Este documento resume el trabajo colaborativo realizado durante la sesión del taller X en el curso AREM - Universidad de La Sabana._
+_Este documento resume el trabajo colaborativo realizado durante la sesión del taller 4 en el curso AREM - Universidad de La Sabana._
