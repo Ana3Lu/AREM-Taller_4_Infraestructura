@@ -11,7 +11,7 @@ _Taller 4 - Mapa de Infraestructura y Diagnóstico Técnico_
 # 📄 Informe Técnico del Taller
 
 ## 🧠 Descripción general del trabajo  
-El objetivo del taller fue modelar la **infraestructura lógica de Zajana S.A.S.**, teniendo en cuenta que se trata de una arquitectura **serverless desplegada en Azure**. El propósito principal fue representar cómo se organizan y conectan los distintos componentes de la solución tecnológica, distribuidos en capas de integración, datos, buro, observabilidad y seguridad. La actividad buscó, además, identificar fortalezas y posibles limitaciones de la arquitectura actual, considerando tanto el acceso de clientes externos como la operación de dispositivos internos de la empresa.  
+El objetivo del taller fue modelar la infraestructura lógica de Zajana S.A.S., teniendo en cuenta que se trata de una arquitectura serverless desplegada en Azure. El propósito principal fue representar cómo se organizan y conectan los distintos componentes de la solución tecnológica, distribuidos en capas de integración, datos, buro, observabilidad y seguridad. La actividad buscó, además, identificar fortalezas y posibles limitaciones de la arquitectura actual, considerando tanto el acceso de clientes externos como la operación de dispositivos internos de la empresa.  
 
 ## 🔧 Proceso de desarrollo  
 El desarrollo del trabajo se realizó mediante la herramienta **draw.io**, que permitió la diagramación colaborativa de la infraestructura. La primera decisión fue organizar los servicios en **capas lógicas** para mejorar la claridad: integración, datos, buro, seguridad y observabilidad. Posteriormente, se añadieron las conexiones entre cada componente, asegurando que quedara explícito cómo interactúan el **cliente y los dispositivos internos** con el ecosistema de servicios en la nube. Finalmente, se incluyeron servicios transversales de seguridad, gobernanza y monitoreo, de acuerdo con las mejores prácticas de Azure, con el fin de dar un panorama completo de la infraestructura lógica actual de Zajana.  
@@ -26,21 +26,21 @@ El desarrollo del trabajo se realizó mediante la herramienta **draw.io**, que p
   - **Capa de observabilidad:** Azure Monitor, compuesto por Apps Insights, Network Watcher y Log Analytics + Alertas, para el monitoreo centralizado.  
   - **Capa de seguridad:** Defender for Cloud, Sentinel, Defender e Intune, que garantizan la protección de los activos de Zajana.  
 
-  Adicionalmente, **Front Door con CDN y Firewall**, junto con **Azure APIM (API Gateway)**, permiten gestionar el tráfico entrante y exponer los servicios de forma segura, mientras que el **NAT Gateway** regula el tráfico saliente hacia internet.  
+  Adicionalmente, Front Door con CDN y Firewall, junto con Azure APIM (API Gateway), permiten gestionar el tráfico entrante y exponer los servicios de forma segura, mientras que el NAT Gateway regula el tráfico saliente hacia internet.  
 
 - **¿Cómo representa las necesidades del cliente?**  
-  El modelo refleja la necesidad de **alta disponibilidad, seguridad y escalabilidad** para los clientes que consultan y consumen los servicios de Zajana. La integración de herramientas como Dynamics 365 y SendGrid muestra la orientación hacia procesos comerciales y de comunicación efectivos. Las bases de datos en la capa de datos, junto con Purview, aseguran la **trazabilidad y gobernanza** de la información. El monitoreo con Azure Monitor y la seguridad con Sentinel y Defender garantizan continuidad, protección frente a incidentes y trazabilidad de operaciones, respondiendo a los requisitos críticos de clientes en sectores sensibles como el financiero.  
+  El modelo refleja la necesidad de alta disponibilidad, seguridad y escalabilidad para los clientes que consultan y consumen los servicios de Zajana. La integración de herramientas como Dynamics 365 y SendGrid muestra la orientación hacia procesos comerciales y de comunicación efectivos. Las bases de datos en la capa de datos, junto con Purview, aseguran la trazabilidad y gobernanza de la información. El monitoreo con Azure Monitor y la seguridad con Sentinel y Defender garantizan continuidad, protección frente a incidentes y trazabilidad de operaciones, respondiendo a los requisitos críticos de clientes en sectores sensibles como el financiero.  
 
 - **¿Qué supuestos se tomaron?**  
   - Se asume autenticación con OAuth2/OIDC y uso de tokens JWT en las APIs.  
   - Se asume observabilidad centralizada en Azure Monitor con trazabilidad distribuida.  
   - Se asume cumplimiento con normas de seguridad de la información (ISO 27001, Habeas Data).  
   - Se asume que proveedores como Azure, Dynamics y SendGrid mantienen SLA estables.  
-  - Se asume que el acceso interno se hace exclusivamente mediante **VPN Gateway** para control de permisos y trazabilidad.  
+  - Se asume que el acceso interno se hace exclusivamente mediante VPN Gateway para control de permisos y trazabilidad.  
 
 - **Identificación de debilidades o cuellos de botella (reales o potenciales):**  
   - **Dependencia de proveedores externos:** La disponibilidad depende de servicios como Dynamics, SendGrid y Azure. Una caída de estos impactaría directamente la operación.  
-  - **Complejidad en seguridad y gobernanza:** El uso de múltiples servicios de seguridad (Defender, Sentinel, Intune) requiere coordinación efectiva; una configuración incorrecta podría generar brechas.  
+  - **Complejidad en seguridad y gobernanza:** El uso de múltiples servicios de seguridad (Defender, Sentinel, Intune) requiere coordinación efectiva. Una configuración incorrecta podría generar brechas.  
   - **Costos potencialmente altos:** La diversidad de servicios gestionados puede incrementar costos si no se optimizan recursos y licencias.  
   - **Riesgo de cuello de botella en el API Gateway (APIM):** Si la demanda supera la capacidad configurada, el acceso a los servicios puede verse afectado.  
   - **Latencia en integraciones externas:** Al depender de Logic Apps y API Connections, el rendimiento puede verse limitado en escenarios de alta concurrencia.  
@@ -52,8 +52,7 @@ El desarrollo del trabajo se realizó mediante la herramienta **draw.io**, que p
 ## 📈 Diagrama final entregado
 ![Vista C1 Final](./mapa-final.drawio.png)
 
-## 📋 Tabla de actores, entidades o componentes (si aplica)
-
+## 📋 Tabla de actores, entidades o componentes  
 
 | Nombre del elemento       | Tipo | Descripción | Responsable |
 |---------------------------|------|-------------|-------------|
@@ -71,9 +70,9 @@ El desarrollo del trabajo se realizó mediante la herramienta **draw.io**, que p
 | Azure APIM (API Gateway)  | Contenedor (Gateway) | Manejo de APIs con autenticación y enrutamiento. | Azure |
 | Backend (Azure Web App)   | Contenedor (Backend) | Lógica de negocio y conexión a bases de datos. | Zajana |
 | NAT Gateway               | Componente (Red) | Administración de tráfico saliente seguro hacia internet. | Azure |
-| Cosmos DB                 | Contenedor (Base de datos NoSQL) | Base de datos no relacional para almacenamiento flexible de consultas. | Zajana |
-| SQL Database              | Contenedor (Base de datos relacional) | Almacena datos estructurados de clientes y operaciones. | Zajana |
-| Azure Storage             | Contenedor (Almacenamiento) | Almacenamiento de datos y archivos no estructurados. | Zajana |
+| Cosmos DB                 | Contenedor (Base de datos NoSQL) | Base de datos no relacional para almacenamiento flexible de consultas. | Azure |
+| SQL Database              | Contenedor (Base de datos relacional) | Almacena datos estructurados de clientes y operaciones. | Azure |
+| Azure Storage             | Contenedor (Almacenamiento) | Almacenamiento de datos y archivos no estructurados. | Azure |
 | Backups                   | Componente (Soporte) | Copias de seguridad de las bases de datos y almacenamiento. | Azure |
 | Purview                   | Componente (Gobernanza) | Herramienta para la gobernanza y trazabilidad de datos. | Zajana |
 | Data Factory              | Componente (Procesamiento) | Orquestador de procesos de datos para integración y análisis. | Zajana |
