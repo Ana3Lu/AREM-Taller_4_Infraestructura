@@ -49,9 +49,6 @@ El desarrollo del trabajo se realizó mediante la herramienta draw.io, que permi
 ## 📈 Diagrama final entregado  
 ![Vista Infraestructura Lógica Final](./mapa-final.drawio.png)  
 
-## 📈 Diagrama final entregado
-![Vista C1 Final](./mapa-final.drawio.png)
-
 ## 📋 Tabla de actores, entidades o componentes  
 
 | Nombre del elemento       | Tipo | Descripción | Responsable |
