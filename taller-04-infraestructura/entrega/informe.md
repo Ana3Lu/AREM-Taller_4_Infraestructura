@@ -21,7 +21,7 @@ Incluya un análisis sobre:
 - Qué supuestos se tomaron
 
 ## 📈 Diagrama final entregado
-> (Inserte aquí una imagen o enlace al modelo-final.drawio / .asta / PDF)
+![Vista C1 Final](./mapa-final.drawio.png)
 
 ## 📋 Tabla de actores, entidades o componentes (si aplica)
 
