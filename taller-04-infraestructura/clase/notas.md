@@ -36,7 +36,28 @@ El diagrama muestra la infraestructura híbrida de RedExpress, donde los usuario
 
 Desde allí se conectan los centros de distribución (infraestructura regional), el módulo de procesamiento de rutas, la base de datos distribuida y los servicios en la nube de monitoreo y alertas junto con estado de paquetes. De esta forma, se integran tanto recursos locales como servicios en la nube para garantizar disponibilidad y soporte a la operación logística.
 
-A partir de este modelo preliminar, se identificarón diferentes aspectos clave que requieren un diagnóstico posterior...
+A partir de este modelo preliminar, se identificarón diferentes aspectos clave que se identifican en las siguientes secciones.
+
+## ⚠️ Identificación de zonas sensibles  
+
+Del análisis preliminar de la infraestructura de RedExpress se identificaron las siguientes zonas críticas:  
+
+- **Carga:** La base de datos centralizada representa un punto de concentración de transacciones, lo que puede generar saturación en temporadas de alta demanda como Navidad.  
+- **Disponibilidad:** Los balanceadores de carga son esenciales para la operación, pero su fallo o una mala configuración podría comprometer el acceso de los usuarios a la plataforma.  
+- **Monitoreo:** Actualmente el monitoreo depende de servicios en la nube, lo que limita la visibilidad en tiempo real sobre el desempeño de los servidores regionales y de los centros de distribución.  
+- **Redundancia:** La infraestructura regional carece de esquemas de redundancia clara, lo que aumenta el riesgo de que un fallo localizado en un servidor o centro de distribución afecte la operación en su totalidad.  
+
+## 🛠️ Posibles problemas y abordaje  
+
+- **Punto único de falla en la base de datos:** Al estar centralizada, la caída o saturación de la base de datos impacta directamente la capacidad de procesar pedidos. Una solución es implementar una base de datos distribuida por zonas geográficas, con mecanismos de replicación y particionamiento para mejorar tanto disponibilidad como rendimiento.  
+
+- **Limitaciones en la escalabilidad horizontal:** El sistema depende fuertemente de los servidores regionales, que podrían no escalar lo suficiente en temporadas críticas. Se recomienda migrar los módulos de procesamiento de rutas y estado de paquetes a servicios en la nube con capacidad de autoescalado.  
+
+- **Falta de redundancia en centros de distribución:** La infraestructura física presenta vulnerabilidades frente a fallos eléctricos, de red o de hardware. Una medida sería diseñar clústeres de servidores regionales y habilitar replicación activa-activa para que el servicio continúe operando aun si un nodo falla.  
+
+- **Monitoreo limitado en tiempo real:** La dependencia de servicios externos de nube dificulta detectar con rapidez saturaciones locales. Una mejora es integrar herramientas de observabilidad distribuidas, con métricas unificadas de aplicaciones, red y hardware, y **alertas proactivas** que permitan actuar antes de que los fallos afecten al cliente final.  
+
+En conjunto, estas medidas buscan que la infraestructura de RedExpress logre resiliencia, alta disponibilidad y escalabilidad sostenida, reduciendo los riesgos de fallas críticas y mejorando la experiencia del usuario en contextos de alta demanda.  
 
 ## 🔁 Tareas definidas para complementar el taller
 
