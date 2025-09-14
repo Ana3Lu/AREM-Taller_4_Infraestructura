@@ -50,11 +50,8 @@ Del análisis preliminar de la infraestructura de RedExpress se identificaron la
 ## 🛠️ Posibles problemas y abordaje  
 
 - **Punto único de falla en la base de datos:** Al estar centralizada, la caída o saturación de la base de datos impacta directamente la capacidad de procesar pedidos. Una solución es implementar una base de datos distribuida por zonas geográficas, con mecanismos de replicación y particionamiento para mejorar tanto disponibilidad como rendimiento.  
-
 - **Limitaciones en la escalabilidad horizontal:** El sistema depende fuertemente de los servidores regionales, que podrían no escalar lo suficiente en temporadas críticas. Se recomienda migrar los módulos de procesamiento de rutas y estado de paquetes a servicios en la nube con capacidad de autoescalado.  
-
 - **Falta de redundancia en centros de distribución:** La infraestructura física presenta vulnerabilidades frente a fallos eléctricos, de red o de hardware. Una medida sería diseñar clústeres de servidores regionales y habilitar replicación activa-activa para que el servicio continúe operando aun si un nodo falla.  
-
 - **Monitoreo limitado en tiempo real:** La dependencia de servicios externos de nube dificulta detectar con rapidez saturaciones locales. Una mejora es integrar herramientas de observabilidad distribuidas, con métricas unificadas de aplicaciones, red y hardware, y **alertas proactivas** que permitan actuar antes de que los fallos afecten al cliente final.  
 
 En conjunto, estas medidas buscan que la infraestructura de RedExpress logre resiliencia, alta disponibilidad y escalabilidad sostenida, reduciendo los riesgos de fallas críticas y mejorando la experiencia del usuario en contextos de alta demanda.  
