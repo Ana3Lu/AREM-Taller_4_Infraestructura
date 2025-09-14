@@ -60,7 +60,7 @@ El desarrollo del trabajo se realizó mediante la herramienta draw.io, que permi
 | SendGrid                  | Sistema externo | Servicio para el envío de notificaciones y correos electrónicos. | Externo |
 | API Connections           | Componente (Integración) | Conector para integrar servicios externos con Logic Apps. | Zajana |
 | Logic Apps                | Componente (Integración) | Orquestador de flujos de integración con sistemas externos. | Zajana |
-| Azure DNS Zone            | Componente (Red) | Resuelve los nombres de dominio hacia los servicios de Zajana. | Azure |
+| DNS Zone            | Componente (Red) | Resuelve los nombres de dominio hacia los servicios de Zajana. | Azure |
 | Traffic Manager           | Componente (Balanceador) | Distribuye el tráfico entre aplicaciones. | Azure |
 | Front Door + Firewall     | Componente (Seguridad/Red) | Punto de entrada seguro y CDN para la infraestructura. | Azure |
 | Azure Static Web App      | Contenedor (Frontend) | Interfaz web para clientes. | Zajana |
